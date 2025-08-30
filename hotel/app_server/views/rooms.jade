@@ -1,11 +1,16 @@
 extends layout
 
 block content
-  h1 Our Rooms
-  p Choose from a variety of room types to suit your needs.
-  ul
-    li Deluxe Room – $120/night
-    li Suite – $250/night
-    li Family Room – $180/night
-  p
-    a(href='/booking') Book Now →
+  h1.text-center.mt-4= title
+  p.text-center Choose from our wide range of rooms designed for your comfort.
+
+  .row.mt-4
+    each room in rooms
+      .col-md-4.mb-4
+        .card.shadow-sm
+          .card-body
+            h5.card-title= room.type
+            p.card-text= room.description
+            p.card-text
+              strong Price: $#{room.price}/night
+            a.btn.btn-primary(href='/booking') Book Now

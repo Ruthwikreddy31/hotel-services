@@ -2,20 +2,22 @@ extends layout
 
 block content
   h1 Book a Room
-  form(action='/booking' method='post')
-    label(for='name') Name:
-    input(type='text' name='name' required)
-    br
-    label(for='email') Email:
-    input(type='email' name='email' required)
-    br
-    label(for='room') Room Type:
-    select(name='room')
-      option(value='deluxe') Deluxe
-      option(value='suite') Suite
-      option(value='family') Family
-    br
-    label(for='date') Check-in Date:
-    input(type='date' name='date' required)
-    br
-    button(type='submit') Confirm Booking
+  form(method="POST", action="/booking")
+    .form-group
+      label Name:
+      input.form-control(type="text", name="name", required)
+    .form-group
+      label Email:
+      input.form-control(type="email", name="email", required)
+    .form-group
+      label Room Type:
+      select.form-control(name="roomType")
+        each room in rooms
+          option(value=room.type)= room.type
+    .form-group
+      label Check-in:
+      input.form-control(type="date", name="checkin", required)
+    .form-group
+      label Check-out:
+      input.form-control(type="date", name="checkout", required)
+    button.btn.btn-primary.mt-3(type="submit") Book Now

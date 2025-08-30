@@ -2,6 +2,16 @@ doctype html
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css')
   body
-    block content
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.mb-4
+      .container
+        a.navbar-brand(href='/') Hotel Paradise
+        ul.navbar-nav
+          li.nav-item: a.nav-link(href='/') Home
+          li.nav-item: a.nav-link(href='/rooms') Rooms
+          li.nav-item: a.nav-link(href='/booking') Booking
+          li.nav-item: a.nav-link(href='/services') Services
+          li.nav-item: a.nav-link(href='/contact') Contact
+    .container
+      block content
